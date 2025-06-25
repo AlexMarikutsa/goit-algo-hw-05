@@ -2,7 +2,7 @@
 import re
 
 def generator_numbers(text: str):
-    pattern = r'[-+]?\d+(?:[.,]\d+)?'
+    pattern = r'(?<=\s)[-+]?\d+(?:[.,]\d+)?(?=\s)'
     words = filter(lambda x: re.fullmatch(pattern, x), text.split())
     for word in words:
         yield float(word)
